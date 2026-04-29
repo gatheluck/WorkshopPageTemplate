@@ -75,9 +75,9 @@ The template uses **3 JSON files** for all content:
 Replace images in `/public/`:
 
 - [ ] `favicon.ico` - Browser tab icon
-- [ ] `bigmac-cover.jpg` - Hero section background (rename to match your workshop)
-- [ ] `bigmac-ogp.jpg` - Social media preview image (rename to match your workshop)
-- [ ] Conference logos if needed
+- [ ] `hero-background.jpg` - Hero section background image (1920x1080 or higher recommended)
+- [ ] `bigmac-ogp.jpg` - Social media preview image (1200x630 recommended, rename to match your workshop)
+- [ ] Conference logos if needed (currently using CVPR logos as examples)
 
 Replace photos:
 - [ ] `/public/organizers/` - Organizer photos (302x302px recommended)
