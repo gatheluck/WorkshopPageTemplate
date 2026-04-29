@@ -108,13 +108,13 @@ function Home() {
 
           {/* Event Info */}
           <div className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-8 text-base md:text-lg">
-            <div className="glass flex items-center gap-3 px-6 py-3 rounded-full shadow-md">
+            <div className="glass flex items-center gap-3 px-6 py-3 rounded-2xl shadow-md">
               <Calendar className="h-5 w-5 text-primary" />
               <span className="font-medium">
                 {workshopData.home.eventInfo.date}
               </span>
             </div>
-            <div className="glass flex items-center gap-3 px-6 py-3 rounded-full shadow-md">
+            <div className="glass flex items-center gap-3 px-6 py-3 rounded-2xl shadow-md">
               <MapPin className="h-5 w-5 text-primary" />
               <span className="font-medium">
                 {workshopData.home.eventInfo.location}
