@@ -84,17 +84,40 @@ Replace photos:
 - [ ] `/public/program/` - Speaker photos (512x512px recommended)
 - [ ] `/public/supporters/` - Sponsor logos (512x512px recommended)
 
-### 5. SEO & Metadata (5 minutes)
+### 5. SEO & Metadata (15-20 minutes)
+
+**IMPORTANT**: SEO is critical for workshop discoverability. See [SEO_GUIDE.md](./SEO_GUIDE.md) for detailed instructions.
 
 - [ ] Update `src/lib/seo.ts`:
-  - Set site title and description
+  - Set SITE_URL, SITE_NAME
+  - Update description (150-160 characters)
+  - Add relevant keywords (5-10 terms)
   - Update OGP image paths
-  - Add keywords
+
+- [ ] Update structured data in `src/app/routes/Home.tsx` (line ~60-80):
+  - Workshop name and description
+  - Start/end date and time (ISO 8601 format: `YYYY-MM-DDTHH:MM:SS`)
+  - Full location address
+  - Organizer information
+  - Event attendance mode (offline/online/hybrid)
 
 - [ ] Update `public/sitemap.xml`:
-  - Change domain to your website URL
+  - Change all URLs to your domain
+  - Update lastmod date
 
-- [ ] Update `public/robots.txt` if needed
+- [ ] Update `public/robots.txt`:
+  - Change sitemap URL to your domain
+
+- [ ] Replace OGP image:
+  - Upload `public/your-workshop-ogp.jpg` (1200x630px)
+  - Update reference in `src/lib/seo.ts`
+
+**Testing** (Required):
+- [ ] Test with [Google Rich Results Test](https://search.google.com/test/rich-results)
+- [ ] Validate with [Schema.org Validator](https://validator.schema.org/)
+- [ ] Preview on [Facebook Debugger](https://developers.facebook.com/tools/debug/)
+
+→ **See [SEO_GUIDE.md](./SEO_GUIDE.md) for complete instructions**
 
 ### 6. Deployment Setup (10-20 minutes)
 
