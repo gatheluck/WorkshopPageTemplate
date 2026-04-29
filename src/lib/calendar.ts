@@ -1,4 +1,51 @@
 /**
+ * Calculate days until a date
+ */
+export function daysUntil(dateString: string): number | null {
+  const targetDate = new Date(dateString);
+  if (isNaN(targetDate.getTime())) {
+    return null;
+  }
+
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+  targetDate.setHours(0, 0, 0, 0);
+
+  const diffTime = targetDate.getTime() - now.getTime();
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+  return diffDays;
+}
+
+/**
+ * Check if a date has passed
+ */
+export function isPast(dateString: string): boolean {
+  const days = daysUntil(dateString);
+  return days !== null && days < 0;
+}
+
+/**
+ * Find the next upcoming date from a list of dates
+ */
+export function findNextDate(
+  dates: Array<{ title: string; date: string }>,
+): { title: string; date: string; daysUntil: number } | null {
+  const upcomingDates = dates
+    .map((item) => ({
+      ...item,
+      daysUntil: daysUntil(item.date),
+    }))
+    .filter(
+      (item): item is { title: string; date: string; daysUntil: number } =>
+        item.daysUntil !== null && item.daysUntil >= 0,
+    )
+    .sort((a, b) => a.daysUntil - b.daysUntil);
+
+  return upcomingDates.length > 0 ? upcomingDates[0] : null;
+}
+
+/**
  * Generate an .ics calendar file for a workshop event
  */
 export function generateICS(
