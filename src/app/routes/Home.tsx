@@ -5,6 +5,7 @@ import {
   ExternalLink,
   FileText,
   Info,
+  CalendarPlus,
 } from "lucide-react";
 import { SiSlack } from "react-icons/si";
 import { Link, useLocation } from "react-router";
@@ -33,6 +34,7 @@ import type { Route } from "./+types/Home";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { buildMeta } from "@/lib/seo";
 import { generateWorkshopStructuredData } from "@/lib/structured-data";
+import { downloadICS } from "@/lib/calendar";
 
 export const meta: Route.MetaFunction = () =>
   buildMeta({
@@ -160,6 +162,44 @@ function Home() {
                 <Link to="/#program">View Program</Link>
               </Button>
             </div>
+          </div>
+        </section>
+
+        {/* Important Dates Section */}
+        <section id="dates" className="space-y-8">
+          <div className="space-y-3">
+            <h2 className="font-bold">Important Dates</h2>
+            <div className="h-1 w-20 bg-gradient-to-r from-primary to-primary/30 rounded-full" />
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {workshopData.home.importantDates.map((item, index) => (
+              <div
+                key={index}
+                className="glass rounded-xl p-6 shadow-md border card-hover group"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex-1 space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="h-4 w-4 text-primary shrink-0" />
+                      <p className="text-sm font-semibold text-muted-foreground">
+                        {item.date}
+                      </p>
+                    </div>
+                    <h3 className="text-base font-semibold leading-tight">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <button
+                    onClick={() => downloadICS(item.title, item.date)}
+                    className="shrink-0 rounded-lg p-2 text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors opacity-0 group-hover:opacity-100"
+                    aria-label="Add to calendar"
+                    title="Add to calendar"
+                  >
+                    <CalendarPlus className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
