@@ -6,19 +6,25 @@
       {
         "name": "Organizer Name 1",
         "affiliation": "University/Institution Name",
-        "photo": "/organizers/placeholder1.png",
+        "photo": "/organizers/aida.nematzadeh-302x302.jpg",
         "website": "https://example.com"
       },
       {
         "name": "Organizer Name 2",
         "affiliation": "University/Institution Name",
-        "photo": "/organizers/placeholder2.png",
+        "photo": "/organizers/anna.kukleva-302x302.jpg",
         "website": "https://example.com"
       },
       {
         "name": "Organizer Name 3",
         "affiliation": "University/Institution Name",
-        "photo": "/organizers/placeholder3.png",
+        "photo": "/organizers/christian.rupprecht.jpg",
+        "website": "https://example.com"
+      },
+      {
+        "name": "Organizer Name 4",
+        "affiliation": "University/Institution Name",
+        "photo": "/organizers/connor.anderson.png",
         "website": "https://example.com"
       }
     ],
@@ -31,13 +37,25 @@
       {
         "name": "Speaker Name 1",
         "affiliation": "University/Company Name",
-        "photo": "/program/speaker1.jpg",
+        "photo": "/program/aditi.raghunathan-512x512.jpg",
         "website": "https://example.com"
       },
       {
         "name": "Speaker Name 2",
         "affiliation": "University/Company Name",
-        "photo": "/program/speaker2.jpg",
+        "photo": "/program/alexei.efros-512x512.jpg",
+        "website": "https://example.com"
+      },
+      {
+        "name": "Speaker Name 3",
+        "affiliation": "University/Company Name",
+        "photo": "/program/andrea.vedaldi-512x512.jpg",
+        "website": "https://example.com"
+      },
+      {
+        "name": "Speaker Name 4",
+        "affiliation": "University/Company Name",
+        "photo": "/program/christian.rupprecht-512x512.jpg",
         "website": "https://example.com"
       },
       {
