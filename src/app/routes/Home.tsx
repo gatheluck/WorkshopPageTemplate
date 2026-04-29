@@ -54,84 +54,90 @@ function Home() {
   }, [location.hash]);
 
   return (
-    <main className="container px-6 py-8 space-y-16 xl:w-6xl">
+    <main className="container mx-auto px-6 py-12 space-y-24 xl:max-w-6xl">
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-3xl border px-6 py-16 text-center shadow-lg">
+      <section className="relative overflow-hidden rounded-3xl border px-8 py-24 md:py-32 text-center shadow-2xl">
+        {/* Background Effects */}
         <div className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-0 gradient-mesh" />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background" />
           <img
             src="/bigmac-cover.jpg"
             alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-30 dark:opacity-20"
+            className="absolute inset-0 h-full w-full object-cover opacity-20 dark:opacity-10 mix-blend-overlay"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-transparent to-transparent dark:from-primary/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
         </div>
-        <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-10">
-          <div className="flex flex-col items-center gap-3 text-xs font-medium uppercase tracking-[0.35em] text-muted-foreground">
-            <span>held as part of</span>
-            <div className="flex flex-wrap items-center justify-center gap-4 rounded-full border bg-background/90 px-6 py-3 shadow-sm backdrop-blur">
-              {/* <div className="flex items-center gap-3 -mx-2">
-                <img
-                  src="/limit-logo-black-wide.png"
-                  alt="LIMIT Workshop logo"
-                  className="h-14 dark:hidden"
-                />
-                <img
-                  src="/limit-logo-white-wide.png"
-                  alt="LIMIT Workshop logo"
-                  className="hidden h-14 dark:block"
-                />
-              </div>
-              <span className="text-sm tracking-normal text-muted-foreground">
-                at
-              </span> */}
-              <div className="flex items-center gap-3 pl-4 pr-4">
+
+        <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-12 fade-in-up">
+          {/* Conference Badge */}
+          <div className="flex flex-col items-center gap-4">
+            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+              Held as part of
+            </span>
+            <div className="glass-strong flex flex-wrap items-center justify-center gap-4 rounded-2xl px-8 py-4 shadow-lg">
+              <div className="flex items-center gap-3 pl-2 pr-2">
                 <img
                   src="/cvpr-logo-black.png"
                   alt="CVPR 2026 logo"
-                  className="h-10 dark:hidden"
+                  className="h-12 dark:hidden"
                 />
                 <img
                   src="/cvpr-logo-white.png"
                   alt="CVPR 2026 logo"
-                  className="hidden h-10 dark:block"
+                  className="hidden h-12 dark:block"
                 />
               </div>
             </div>
           </div>
-          <div className="space-y-4">
-            <h1 className="text-3xl tracking-tighter sm:text-4xl md:text-5xl xl:whitespace-nowrap">
+
+          {/* Title */}
+          <div className="space-y-6 max-w-4xl">
+            <h1 className="gradient-text font-extrabold leading-tight">
               {workshopData.home.title}
             </h1>
-            <p className="text-2xl tracking-tight sm:text-3xl md:text-4xl">
-              {workshopData.home.tagline}
+            {workshopData.home.tagline && (
+              <p className="text-xl md:text-2xl lg:text-3xl font-medium text-muted-foreground/90 tracking-tight">
+                {workshopData.home.tagline}
+              </p>
+            )}
+            <p className="text-lg md:text-xl text-muted-foreground font-medium">
+              {workshopData.home.subtitle}
             </p>
-            <p className="text-lg text-muted-foreground">{workshopData.home.subtitle}</p>
           </div>
-          <div className="flex flex-col items-center justify-center gap-4 text-sm sm:flex-row sm:text-base">
-            <div className="flex items-center gap-2">
+
+          {/* Event Info */}
+          <div className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-8 text-base md:text-lg">
+            <div className="glass flex items-center gap-3 px-6 py-3 rounded-full shadow-md">
               <Calendar className="h-5 w-5 text-primary" />
-              <span>{workshopData.home.eventInfo.date}</span>
+              <span className="font-medium">{workshopData.home.eventInfo.date}</span>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="glass flex items-center gap-3 px-6 py-3 rounded-full shadow-md">
               <MapPin className="h-5 w-5 text-primary" />
-              <span>{workshopData.home.eventInfo.location}</span>
+              <span className="font-medium">{workshopData.home.eventInfo.location}</span>
             </div>
           </div>
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <Button variant="outline" size="lg" asChild>
-              <Link to="/#program">Check Program</Link>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col gap-4 sm:flex-row mt-4">
+            <Button
+              variant="outline"
+              size="lg"
+              className="text-base px-8 py-6 rounded-xl shadow-lg hover:shadow-xl transition-all"
+              asChild
+            >
+              <Link to="/#program">View Program</Link>
             </Button>
           </div>
         </div>
       </section>
 
       {/* Info + Latest News Section */}
-      <div className="space-y-6 -mt-8">
+      <div className="space-y-12">
         {/* Info Section */}
-        <div className="flex items-start gap-4 rounded-lg border bg-card p-6">
-          <Info className="h-6 w-6 shrink-0 text-primary" />
-          <p className="font-medium">
+        <div className="glass-strong flex items-start gap-4 rounded-2xl p-8 shadow-lg card-hover">
+          <Info className="h-6 w-6 shrink-0 text-primary mt-1" />
+          <p className="text-base leading-relaxed">
             This workshop does NOT have a call for papers. Instead, we will hold
             an invited poster session. If you would like to nominate your paper
             for a poster presentation at our workshop, please add it{" "}
@@ -139,7 +145,7 @@ function Home() {
               href="https://docs.google.com/forms/d/e/1FAIpQLSdei0hTZJ8bA6gAUtcpY6UiJW05wwVl7e507RLSyGi2jHnOtA/viewform?usp=dialog"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary hover:text-primary/80"
+              className="text-primary hover:text-primary/80 font-semibold underline decoration-primary/30 underline-offset-4 transition-colors"
             >
               here
             </a>
@@ -148,20 +154,28 @@ function Home() {
         </div>
 
         {/* Latest News Section */}
-        <section id="news" className="space-y-6 mt-16">
-          <div className="space-y-2">
-            <h2 className="text-3xl tracking-tighter">Latest News</h2>
+        <section id="news" className="space-y-8">
+          <div className="space-y-3">
+            <h2 className="font-bold">Latest News</h2>
+            <div className="h-1 w-20 bg-gradient-to-r from-primary to-primary/30 rounded-full" />
           </div>
-          <div className="space-y-4">
+          <div className="grid gap-6 md:grid-cols-2">
             {workshopData.home.latestNews.map((news, index) => (
-              <div key={index} className="rounded-lg border bg-card p-6">
-                <div className="flex justify-between items-start">
-                  <div className="space-y-1">
-                    <h3 className="font-semibold">{news.title}</h3>
-                    <p className="text-sm text-muted-foreground">{news.date}</p>
+              <div
+                key={index}
+                className="glass rounded-2xl p-8 shadow-md card-hover border"
+              >
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold">{news.title}</h3>
+                    <p className="text-sm text-muted-foreground font-medium">
+                      {news.date}
+                    </p>
                   </div>
+                  <p className="text-base leading-relaxed text-foreground/80">
+                    {news.content}
+                  </p>
                 </div>
-                <p className="mt-2">{news.content}</p>
               </div>
             ))}
           </div>
@@ -169,10 +183,13 @@ function Home() {
       </div>
 
       {/* Overview Section */}
-      <section id="about" className="space-y-6">
-        <div className="space-y-2">
-          <h2 className="text-3xl tracking-tighter">About BigMAC Workshop</h2>
-          <p>
+      <section id="about" className="space-y-12">
+        <div className="space-y-6">
+          <div className="space-y-3">
+            <h2 className="font-bold">About the Workshop</h2>
+            <div className="h-1 w-20 bg-gradient-to-r from-primary to-primary/30 rounded-full" />
+          </div>
+          <p className="text-lg leading-relaxed text-foreground/90 max-w-4xl">
             This workshop explores how large pretrained models are
             revolutionizing computer vision. We examine emerging techniques
             where models like Stable Diffusion enable image-to-3D
@@ -188,10 +205,11 @@ function Home() {
             tasks.
           </p>
         </div>
+
         {/* Broader impact */}
-        <div className="space-y-2">
-          <h3 className="text-2xl tracking-tighter">Broader impact</h3>
-          <p>
+        <div className="glass rounded-2xl p-10 space-y-4 border shadow-lg">
+          <h3 className="text-2xl font-bold">Broader Impact</h3>
+          <p className="text-base leading-relaxed text-foreground/80">
             The goal of this workshop is to explore and discuss ways of
             effectively adapting and utilizing large pretrained models in
             computer vision. The sheer parameter and training dataset sizes mean
@@ -209,113 +227,116 @@ function Home() {
             advancing computer vision research and applications.
           </p>
         </div>
+
         {/* Topics of Interest */}
-        <div className="space-y-2">
-          <h3 className="text-2xl tracking-tighter">Topics of Interest</h3>
-          <p>The workshop focus on following topics:</p>
-          <div className="space-y-2">
-            <ul className="list-disc pl-5 space-y-1">
-              {workshopData.callForPapers.topics.core.map((topic, index) => (
-                <li key={index}>{topic}</li>
-              ))}
-            </ul>
+        <div className="space-y-6">
+          <h3 className="text-2xl font-bold">Topics of Interest</h3>
+          <p className="text-base text-muted-foreground">
+            The workshop focuses on the following topics:
+          </p>
+          <div className="grid gap-4 md:grid-cols-2">
+            {workshopData.callForPapers.topics.core.map((topic, index) => (
+              <div
+                key={index}
+                className="glass flex items-start gap-4 rounded-xl p-6 border card-hover"
+              >
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary font-bold">
+                  {index + 1}
+                </div>
+                <p className="text-base leading-relaxed pt-1">{topic}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Program Section */}
-      <section id="program" className="space-y-6">
-        <div className="space-y-2">
-          <h2 className="text-2xl sm:text-3xl tracking-tighter">
-            Workshop Program
-          </h2>
+      <section id="program" className="space-y-8">
+        <div className="space-y-3">
+          <h2 className="font-bold">Workshop Program</h2>
+          <div className="h-1 w-20 bg-gradient-to-r from-primary to-primary/30 rounded-full" />
         </div>
-        <div className="flex items-start gap-4 rounded-lg border bg-card p-6">
-          <Info className="h-6 w-6 shrink-0 text-primary" />
-          <p>
+        <div className="glass-strong flex items-start gap-4 rounded-2xl p-8 shadow-lg">
+          <Info className="h-6 w-6 shrink-0 text-primary mt-1" />
+          <p className="text-base leading-relaxed">
             The following workshop program describes the tentative schedule in
             the case that the workshop is held in the morning. Please note that
             the program may change depending on the assigned time slot. Please
             check back for updates.
           </p>
         </div>
-        <ScrollArea className="w-[80dvw] md:w-full">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-[150px]">Time</TableHead>
-                <TableHead>Session</TableHead>
-                <TableHead className="hidden md:table-cell">
-                  Presenter
-                </TableHead>
-                <TableHead className="hidden md:table-cell w-[140px]"></TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {workshopData.schedule.workshopProgram.day1.schedule.map((item, index) => (
-                <TableRow key={index}>
-                  <TableCell className="font-medium">{item.time}</TableCell>
-                  <TableCell>{item.session}</TableCell>
-                  <TableCell className="hidden md:table-cell">
-                    {item.presenter || ""}
-                  </TableCell>
-                  <TableCell className="hidden md:table-cell">
-                    {item.slides ? (
-                      <Button variant="ghost" size="sm" asChild>
-                        <a href={item.slides} target="_blank" rel="noreferrer">
-                          <FileText className="mr-2 h-4 w-4" />
-                          Slides
-                        </a>
-                      </Button>
-                    ) : (
-                      <span className="text-muted-foreground text-sm"></span>
-                    )}
-                  </TableCell>
+        <div className="glass rounded-2xl p-6 md:p-8 border shadow-lg overflow-hidden">
+          <ScrollArea className="w-full">
+            <Table>
+              <TableHeader>
+                <TableRow className="hover:bg-transparent border-b-2">
+                  <TableHead className="w-[150px] font-bold text-base">Time</TableHead>
+                  <TableHead className="font-bold text-base">Session</TableHead>
+                  <TableHead className="hidden md:table-cell font-bold text-base">
+                    Presenter
+                  </TableHead>
+                  <TableHead className="hidden md:table-cell w-[140px]"></TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-          <ScrollBar orientation="horizontal" />
-        </ScrollArea>
+              </TableHeader>
+              <TableBody>
+                {workshopData.schedule.workshopProgram.day1.schedule.map((item, index) => (
+                  <TableRow key={index} className="border-b border-border/50 hover:bg-accent/5">
+                    <TableCell className="font-semibold text-primary">{item.time}</TableCell>
+                    <TableCell className="font-medium">{item.session}</TableCell>
+                    <TableCell className="hidden md:table-cell text-muted-foreground">
+                      {item.presenter || ""}
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell">
+                      {item.slides ? (
+                        <Button variant="ghost" size="sm" asChild className="hover:bg-primary/10">
+                          <a href={item.slides} target="_blank" rel="noreferrer">
+                            <FileText className="mr-2 h-4 w-4" />
+                            Slides
+                          </a>
+                        </Button>
+                      ) : null}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+            <ScrollBar orientation="horizontal" />
+          </ScrollArea>
+        </div>
       </section>
 
       {/* Invited Speakers Section */}
-      <section id="speakers" className="space-y-6">
-        <div className="space-y-2">
-          <h2 className="text-2xl sm:text-3xl tracking-tighter">
-            Invited Speakers
-          </h2>
+      <section id="speakers" className="space-y-8">
+        <div className="space-y-3">
+          <h2 className="font-bold">Invited Speakers</h2>
+          <div className="h-1 w-20 bg-gradient-to-r from-primary to-primary/30 rounded-full" />
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {peopleData.program.invitedSpeakers.map((speaker, index) => (
-            <Card key={index}>
-              <CardHeader>
-                <CardTitle>{speaker.name}</CardTitle>
-                <CardDescription>{speaker.affiliation}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="aspect-square bg-muted rounded-md flex items-center justify-center">
-                    <img
-                      src={speaker.photo}
-                      alt={`Photo of ${speaker.name}`}
-                      className="object-cover w-full h-full"
-                      loading="lazy"
-                    />
-                  </div>
-                  {/* <h3 className="font-semibold">{speaker.title}</h3>
-                  <p className="text-sm text-muted-foreground">{speaker.bio}</p> */}
+            <Card key={index} className="glass border overflow-hidden card-hover group">
+              <CardContent className="p-0">
+                <div className="aspect-square bg-muted flex items-center justify-center overflow-hidden">
+                  <img
+                    src={speaker.photo}
+                    alt={`Photo of ${speaker.name}`}
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
                 </div>
               </CardContent>
-              <CardFooter>
+              <CardHeader className="space-y-3 pb-6">
+                <CardTitle className="text-xl">{speaker.name}</CardTitle>
+                <CardDescription className="text-base">{speaker.affiliation}</CardDescription>
+              </CardHeader>
+              <CardFooter className="pt-0">
                 <Button
                   variant="outline"
                   size="sm"
-                  className="flex gap-2"
+                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
                   asChild
                 >
-                  <a href={speaker.website} target="_blank" rel="noreferrer">
-                    View Profile <ExternalLink className="ml-2 h-3 w-3" />
+                  <a href={speaker.website} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2">
+                    View Profile <ExternalLink className="h-4 w-4" />
                   </a>
                 </Button>
               </CardFooter>
@@ -325,37 +346,36 @@ function Home() {
       </section>
 
       {/* Organizers */}
-      <section id="organizers" className="space-y-6">
-        <div className="space-y-2">
-          <h2 className="text-2xl sm:text-3xl tracking-tighter">Organizers</h2>
+      <section id="organizers" className="space-y-8">
+        <div className="space-y-3">
+          <h2 className="font-bold">Organizers</h2>
+          <div className="h-1 w-20 bg-gradient-to-r from-primary to-primary/30 rounded-full" />
         </div>
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {peopleData.organizers.organizers.map((chair, index) => (
-            <Card key={index}>
-              <CardHeader>
-                <CardTitle>{chair.name}</CardTitle>
-                <CardDescription>{chair.affiliation}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="aspect-square bg-muted rounded-md flex items-center justify-center">
-                    <img
-                      src={chair.photo}
-                      alt={`Photo of ${chair.name}`}
-                      className="object-cover w-full h-full"
-                      loading="lazy"
-                    />
-                  </div>
+            <Card key={index} className="glass border overflow-hidden card-hover group">
+              <CardContent className="p-0">
+                <div className="aspect-square bg-muted flex items-center justify-center overflow-hidden">
+                  <img
+                    src={chair.photo}
+                    alt={`Photo of ${chair.name}`}
+                    className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
                 </div>
               </CardContent>
-              <CardFooter className="flex justify-between">
+              <CardHeader className="space-y-2 pb-4">
+                <CardTitle className="text-lg">{chair.name}</CardTitle>
+                <CardDescription className="text-sm leading-relaxed">{chair.affiliation}</CardDescription>
+              </CardHeader>
+              <CardFooter className="pt-0">
                 <Button
                   variant="outline"
                   size="sm"
-                  className="flex gap-2"
+                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
                   asChild
                 >
-                  <a href={chair.website} target="_blank" rel="noreferrer">
+                  <a href={chair.website} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2">
                     Website <ExternalLink className="h-4 w-4" />
                   </a>
                 </Button>
@@ -366,33 +386,32 @@ function Home() {
       </section>
 
       {/* Contact Information */}
-      <section id="contact" className="space-y-6">
-        <div className="space-y-2">
-          <h2 className="text-2xl sm:text-3xl tracking-tighter">
-            Contact Information
-          </h2>
+      <section id="contact" className="space-y-8">
+        <div className="space-y-3">
+          <h2 className="font-bold">Contact Information</h2>
+          <div className="h-1 w-20 bg-gradient-to-r from-primary to-primary/30 rounded-full" />
         </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {workshopData.contact.contactInfo.map((info, index) => (
-            <Card key={index}>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  {info.icon === "Mail" && <Mail className="h-5 w-5" />}
-                  {info.icon === "MapPin" && <MapPin className="h-5 w-5" />}
-                  {info.icon === "SiSlack" && <SiSlack className="h-5 w-5" />}
+            <Card key={index} className="glass border card-hover">
+              <CardHeader className="space-y-4">
+                <CardTitle className="flex items-center gap-3 text-xl">
+                  {info.icon === "Mail" && <Mail className="h-6 w-6 text-primary" />}
+                  {info.icon === "MapPin" && <MapPin className="h-6 w-6 text-primary" />}
+                  {info.icon === "SiSlack" && <SiSlack className="h-6 w-6 text-primary" />}
                   {info.type}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
+              <CardContent className="space-y-4">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {info.description}
                 </p>
                 {info.value && (
-                  <p className="font-medium mt-2">
+                  <p className="font-semibold text-base">
                     {info.type === "Email" ? (
                       <a
                         href={`mailto:${info.value}`}
-                        className="hover:text-primary"
+                        className="text-primary hover:text-primary/80 transition-colors underline decoration-primary/30 underline-offset-4"
                       >
                         {info.value}
                       </a>
@@ -407,13 +426,13 @@ function Home() {
                   </p>
                 )}
                 {info.socialLinks && (
-                  <div className="flex gap-4 mt-2">
+                  <div className="flex flex-wrap gap-3 mt-4">
                     {info.socialLinks.map((link, linkIndex) => (
                       <Button
                         key={linkIndex}
                         variant="outline"
                         size="sm"
-                        className="flex gap-2"
+                        className="flex gap-2 hover:bg-primary hover:text-primary-foreground transition-colors"
                         asChild
                       >
                         <a href={link.url} target="_blank" rel="noreferrer">
