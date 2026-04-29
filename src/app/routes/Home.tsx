@@ -369,7 +369,7 @@ function Home() {
             {peopleData.program.invitedSpeakers.map((speaker, index) => (
               <Card
                 key={index}
-                className="glass border overflow-hidden card-hover group"
+                className="glass border overflow-hidden card-hover group gap-0 py-0"
               >
                 <CardContent className="p-0">
                   <div className="aspect-square bg-muted flex items-center justify-center overflow-hidden">
@@ -381,13 +381,13 @@ function Home() {
                     />
                   </div>
                 </CardContent>
-                <CardHeader className="space-y-3 pb-6">
+                <CardHeader className="space-y-3 pb-6 pt-6">
                   <CardTitle className="text-xl">{speaker.name}</CardTitle>
                   <CardDescription className="text-base">
                     {speaker.affiliation}
                   </CardDescription>
                 </CardHeader>
-                <CardFooter className="pt-0">
+                <CardFooter className="pt-0 pb-6">
                   <Button
                     variant="outline"
                     size="sm"
@@ -419,7 +419,7 @@ function Home() {
             {peopleData.organizers.organizers.map((chair, index) => (
               <Card
                 key={index}
-                className="glass border overflow-hidden card-hover group"
+                className="glass border overflow-hidden card-hover group gap-0 py-0"
               >
                 <CardContent className="p-0">
                   <div className="aspect-square bg-muted flex items-center justify-center overflow-hidden">
@@ -431,13 +431,13 @@ function Home() {
                     />
                   </div>
                 </CardContent>
-                <CardHeader className="space-y-2 pb-4">
+                <CardHeader className="space-y-2 pb-4 pt-6">
                   <CardTitle className="text-lg">{chair.name}</CardTitle>
                   <CardDescription className="text-sm leading-relaxed">
                     {chair.affiliation}
                   </CardDescription>
                 </CardHeader>
-                <CardFooter className="pt-0">
+                <CardFooter className="pt-0 pb-6">
                   <Button
                     variant="outline"
                     size="sm"
