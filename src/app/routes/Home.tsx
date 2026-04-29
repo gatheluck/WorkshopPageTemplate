@@ -110,11 +110,15 @@ function Home() {
           <div className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-8 text-base md:text-lg">
             <div className="glass flex items-center gap-3 px-6 py-3 rounded-full shadow-md">
               <Calendar className="h-5 w-5 text-primary" />
-              <span className="font-medium">{workshopData.home.eventInfo.date}</span>
+              <span className="font-medium">
+                {workshopData.home.eventInfo.date}
+              </span>
             </div>
             <div className="glass flex items-center gap-3 px-6 py-3 rounded-full shadow-md">
               <MapPin className="h-5 w-5 text-primary" />
-              <span className="font-medium">{workshopData.home.eventInfo.location}</span>
+              <span className="font-medium">
+                {workshopData.home.eventInfo.location}
+              </span>
             </div>
           </div>
 
@@ -270,7 +274,9 @@ function Home() {
             <Table>
               <TableHeader>
                 <TableRow className="hover:bg-transparent border-b-2">
-                  <TableHead className="w-[150px] font-bold text-base">Time</TableHead>
+                  <TableHead className="w-[150px] font-bold text-base">
+                    Time
+                  </TableHead>
                   <TableHead className="font-bold text-base">Session</TableHead>
                   <TableHead className="hidden md:table-cell font-bold text-base">
                     Presenter
@@ -279,25 +285,43 @@ function Home() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {workshopData.schedule.workshopProgram.day1.schedule.map((item, index) => (
-                  <TableRow key={index} className="border-b border-border/50 hover:bg-accent/5">
-                    <TableCell className="font-semibold text-primary">{item.time}</TableCell>
-                    <TableCell className="font-medium">{item.session}</TableCell>
-                    <TableCell className="hidden md:table-cell text-muted-foreground">
-                      {item.presenter || ""}
-                    </TableCell>
-                    <TableCell className="hidden md:table-cell">
-                      {item.slides ? (
-                        <Button variant="ghost" size="sm" asChild className="hover:bg-primary/10">
-                          <a href={item.slides} target="_blank" rel="noreferrer">
-                            <FileText className="mr-2 h-4 w-4" />
-                            Slides
-                          </a>
-                        </Button>
-                      ) : null}
-                    </TableCell>
-                  </TableRow>
-                ))}
+                {workshopData.schedule.workshopProgram.day1.schedule.map(
+                  (item, index) => (
+                    <TableRow
+                      key={index}
+                      className="border-b border-border/50 hover:bg-accent/5"
+                    >
+                      <TableCell className="font-semibold text-primary">
+                        {item.time}
+                      </TableCell>
+                      <TableCell className="font-medium">
+                        {item.session}
+                      </TableCell>
+                      <TableCell className="hidden md:table-cell text-muted-foreground">
+                        {item.presenter || ""}
+                      </TableCell>
+                      <TableCell className="hidden md:table-cell">
+                        {item.slides ? (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            asChild
+                            className="hover:bg-primary/10"
+                          >
+                            <a
+                              href={item.slides}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <FileText className="mr-2 h-4 w-4" />
+                              Slides
+                            </a>
+                          </Button>
+                        ) : null}
+                      </TableCell>
+                    </TableRow>
+                  ),
+                )}
               </TableBody>
             </Table>
             <ScrollBar orientation="horizontal" />
@@ -313,7 +337,10 @@ function Home() {
         </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {peopleData.program.invitedSpeakers.map((speaker, index) => (
-            <Card key={index} className="glass border overflow-hidden card-hover group">
+            <Card
+              key={index}
+              className="glass border overflow-hidden card-hover group"
+            >
               <CardContent className="p-0">
                 <div className="aspect-square bg-muted flex items-center justify-center overflow-hidden">
                   <img
@@ -326,7 +353,9 @@ function Home() {
               </CardContent>
               <CardHeader className="space-y-3 pb-6">
                 <CardTitle className="text-xl">{speaker.name}</CardTitle>
-                <CardDescription className="text-base">{speaker.affiliation}</CardDescription>
+                <CardDescription className="text-base">
+                  {speaker.affiliation}
+                </CardDescription>
               </CardHeader>
               <CardFooter className="pt-0">
                 <Button
@@ -335,7 +364,12 @@ function Home() {
                   className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
                   asChild
                 >
-                  <a href={speaker.website} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2">
+                  <a
+                    href={speaker.website}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-center gap-2"
+                  >
                     View Profile <ExternalLink className="h-4 w-4" />
                   </a>
                 </Button>
@@ -353,7 +387,10 @@ function Home() {
         </div>
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {peopleData.organizers.organizers.map((chair, index) => (
-            <Card key={index} className="glass border overflow-hidden card-hover group">
+            <Card
+              key={index}
+              className="glass border overflow-hidden card-hover group"
+            >
               <CardContent className="p-0">
                 <div className="aspect-square bg-muted flex items-center justify-center overflow-hidden">
                   <img
@@ -366,7 +403,9 @@ function Home() {
               </CardContent>
               <CardHeader className="space-y-2 pb-4">
                 <CardTitle className="text-lg">{chair.name}</CardTitle>
-                <CardDescription className="text-sm leading-relaxed">{chair.affiliation}</CardDescription>
+                <CardDescription className="text-sm leading-relaxed">
+                  {chair.affiliation}
+                </CardDescription>
               </CardHeader>
               <CardFooter className="pt-0">
                 <Button
@@ -375,7 +414,12 @@ function Home() {
                   className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
                   asChild
                 >
-                  <a href={chair.website} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2">
+                  <a
+                    href={chair.website}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-center gap-2"
+                  >
                     Website <ExternalLink className="h-4 w-4" />
                   </a>
                 </Button>
@@ -396,9 +440,15 @@ function Home() {
             <Card key={index} className="glass border card-hover">
               <CardHeader className="space-y-4">
                 <CardTitle className="flex items-center gap-3 text-xl">
-                  {info.icon === "Mail" && <Mail className="h-6 w-6 text-primary" />}
-                  {info.icon === "MapPin" && <MapPin className="h-6 w-6 text-primary" />}
-                  {info.icon === "SiSlack" && <SiSlack className="h-6 w-6 text-primary" />}
+                  {info.icon === "Mail" && (
+                    <Mail className="h-6 w-6 text-primary" />
+                  )}
+                  {info.icon === "MapPin" && (
+                    <MapPin className="h-6 w-6 text-primary" />
+                  )}
+                  {info.icon === "SiSlack" && (
+                    <SiSlack className="h-6 w-6 text-primary" />
+                  )}
                   {info.type}
                 </CardTitle>
               </CardHeader>

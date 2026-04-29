@@ -131,10 +131,13 @@ export function Footer() {
       <div className="container mx-auto mt-12 border-t border-border/50 pt-8 px-6 xl:max-w-6xl">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <Link to="/" className="flex items-center space-x-2 group">
-            <span className="font-bold text-xl group-hover:text-primary transition-colors">BigMAC Workshop</span>
+            <span className="font-bold text-xl group-hover:text-primary transition-colors">
+              BigMAC Workshop
+            </span>
           </Link>
           <p className="text-center text-sm text-muted-foreground font-medium">
-            &copy; {new Date().getFullYear()} BigMAC Workshop. All rights reserved.
+            &copy; {new Date().getFullYear()} BigMAC Workshop. All rights
+            reserved.
           </p>
           <p className="text-center text-sm text-muted-foreground md:text-right font-medium">
             Built by cvpaper.challenge Dev Team

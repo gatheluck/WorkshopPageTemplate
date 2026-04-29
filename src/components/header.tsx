@@ -70,10 +70,7 @@ export function Header() {
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent
-              side="right"
-              className="glass-strong"
-            >
+            <SheetContent side="right" className="glass-strong">
               <div className="flex flex-col gap-6 py-8">
                 {navItems.map((item) => (
                   <SheetClose asChild key={item.path}>
