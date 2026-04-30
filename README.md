@@ -11,13 +11,13 @@ A modern, customizable template for academic workshop websites. Built with React
 - 📝 JSON-based content management (no database required)
 - 🚀 Fast development with Vite and HMR
 - 🐳 Docker support for easy deployment
-- ⚡ SEO-friendly with sitemap and robots.txt
+- ⚡ SEO-optimized with structured data, meta tags, and sitemaps (see [SEO_GUIDE.md](./SEO_GUIDE.md))
 
 ## Quick Start
 
 ### Prerequisites
 
-- Node.js 18+ or use mise (configured via `.mise.toml`)
+- Node.js 22 LTS+ or use mise (configured via `.mise.toml`)
 - Yarn package manager
 
 ### Installation
@@ -189,13 +189,19 @@ Update the deployment workflow with your hosting service credentials.
 - **Build Tool**: Vite
 - **Linting**: ESLint + Prettier
 
+## Documentation
+
+- **[TEMPLATE_GUIDE.md](./TEMPLATE_GUIDE.md)**: Step-by-step customization guide with checklists
+- **[SEO_GUIDE.md](./SEO_GUIDE.md)**: Complete SEO optimization guide (essential for workshop discoverability)
+- **[DATA_STRUCTURE.md](./DATA_STRUCTURE.md)**: JSON data structure reference
+
 ## Tips
 
 1. **Fast development**: Edit JSON files in `src/data/` for quick content updates
 2. **Image optimization**: Compress images before adding to `public/`
 3. **Accessibility**: All UI components are built with Radix UI for a11y
 4. **Performance**: The template uses lazy loading and code splitting
-5. **SEO**: Update meta tags in `src/lib/seo.ts` and `public/sitemap.xml`
+5. **SEO**: See [SEO_GUIDE.md](./SEO_GUIDE.md) for comprehensive optimization instructions
 
 ## License
 

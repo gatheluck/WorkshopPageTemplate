@@ -6,8 +6,8 @@ import { Link } from "react-router";
 
 export function Footer() {
   return (
-    <footer className="w-full border-t bg-footer-background/70 py-6 md:py-10 flex flex-col items-center">
-      <div className="container grid gap-8 md:grid-cols-2 lg:grid-cols-4 px-6 xl:w-6xl">
+    <footer className="w-full border-t border-border/50 bg-footer-background/80 backdrop-blur-xl py-12 md:py-16 flex flex-col items-center mt-24">
+      <div className="container mx-auto grid gap-12 md:grid-cols-2 lg:grid-cols-4 px-6 xl:max-w-6xl">
         {/* Logo and Workshop Name */}
         {/* <div className="flex flex-col gap-2">
           <Link to="/" className="flex items-center space-x-2">
@@ -17,60 +17,62 @@ export function Footer() {
         </div> */}
 
         {/* Past BigMAC Workshop */}
-        <div className="flex flex-col gap-2">
-          <h3 className="font-medium">Past BigMAC Workshops</h3>
+        <div className="flex flex-col gap-4">
+          <h3 className="font-bold text-lg">Past Workshops</h3>
           <Link
             to="https://bigmac-vision.github.io/"
-            className="text-sm text-muted-foreground hover:text-foreground"
+            className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
           >
             ICCV 2023 BigMAC
           </Link>
         </div>
 
         {/* Related Workshop */}
-        <div className="flex flex-col gap-2">
-          <h3 className="font-medium">Related Workshops</h3>
+        <div className="flex flex-col gap-4">
+          <h3 className="font-bold text-lg">Related Workshops</h3>
           <Link
             to="https://cvpr2026-vgi-workshop.limitlab.xyz/"
-            className="text-sm text-muted-foreground hover:text-foreground"
+            className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
           >
             CVPR 2026 VGI
           </Link>
         </div>
 
         {/* Links */}
-        <div className="flex flex-col gap-2">
-          <h3 className="font-medium">Links</h3>
-          <Link
-            to="/"
-            className="text-sm text-muted-foreground hover:text-foreground"
-          >
-            Home
-          </Link>
-          <Link
-            to="/#program"
-            className="text-sm text-muted-foreground hover:text-foreground"
-          >
-            Program
-          </Link>
-          <Link
-            to="/#speakers"
-            className="text-sm text-muted-foreground hover:text-foreground"
-          >
-            Speakers
-          </Link>
-          <Link
-            to="/#organizers"
-            className="text-sm text-muted-foreground hover:text-foreground"
-          >
-            Organizers
-          </Link>
-          <Link
-            to="/#contact"
-            className="text-sm text-muted-foreground hover:text-foreground"
-          >
-            Contact
-          </Link>
+        <div className="flex flex-col gap-4">
+          <h3 className="font-bold text-lg">Quick Links</h3>
+          <div className="flex flex-col gap-2">
+            <Link
+              to="/"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
+            >
+              Home
+            </Link>
+            <Link
+              to="/#program"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
+            >
+              Program
+            </Link>
+            <Link
+              to="/#speakers"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
+            >
+              Speakers
+            </Link>
+            <Link
+              to="/#organizers"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
+            >
+              Organizers
+            </Link>
+            <Link
+              to="/#contact"
+              className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
+            >
+              Contact
+            </Link>
+          </div>
         </div>
 
         {/* Social Links
@@ -126,29 +128,19 @@ export function Footer() {
       </div>
 
       {/* Credits */}
-      <div className="container mt-8 border-t pt-4 px-6 xl:w-6xl">
-        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-          <Link to="/" className="flex items-center space-x-2">
-            <span className="font-bold text-lg">BigMAC Workshop</span>
-            {/* <img
-              src={blackLimitLabLogoWide}
-              alt="LIMIT Workshop logo"
-              className="object-contain h-16 w-auto dark:hidden"
-              loading="lazy"
-            />
-            <img
-              src={whiteLimitLabLogoWide}
-              alt="LIMIT Workshop logo"
-              className="object-contain h-16 w-auto hidden dark:block"
-              loading="lazy"
-            /> */}
+      <div className="container mx-auto mt-12 border-t border-border/50 pt-8 px-6 xl:max-w-6xl">
+        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+          <Link to="/" className="flex items-center space-x-2 group">
+            <span className="font-bold text-xl group-hover:text-primary transition-colors">
+              BigMAC Workshop
+            </span>
           </Link>
-          <p className="text-center text-sm text-muted-foreground md:text-left">
+          <p className="text-center text-sm text-muted-foreground font-medium">
             &copy; {new Date().getFullYear()} BigMAC Workshop. All rights
             reserved.
           </p>
-          <p className="text-center text-sm text-muted-foreground md:text-right">
-            Website built by cvpaper.challenge Dev Team
+          <p className="text-center text-sm text-muted-foreground md:text-right font-medium">
+            Built by cvpaper.challenge Dev Team
           </p>
         </div>
       </div>
