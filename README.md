@@ -17,7 +17,7 @@ A modern, customizable template for academic workshop websites. Built with React
 
 ### Prerequisites
 
-- Node.js 18+ or use mise (configured via `.mise.toml`)
+- Node.js 22 LTS+ or use mise (configured via `.mise.toml`)
 - Yarn package manager
 
 ### Installation
