@@ -29,37 +29,37 @@ export function DeadlineBanner({ dates }: DeadlineBannerProps) {
       }`}
     >
       <div className="flex items-center justify-center gap-3 py-3 text-sm">
-          <Clock
-            className={`h-4 w-4 shrink-0 ${
-              isUrgent
-                ? "text-red-600 dark:text-red-400"
-                : isModerate
-                  ? "text-orange-600 dark:text-orange-400"
-                  : "text-primary"
-            }`}
-          />
-          <span className="font-semibold">{title}</span>
-          <span className="text-muted-foreground">•</span>
-          <div className="flex items-center gap-2">
-            <Calendar className="h-4 w-4 text-muted-foreground" />
-            <span className="text-muted-foreground">{date}</span>
-          </div>
-          <span className="text-muted-foreground hidden sm:inline">•</span>
-          <span
-            className={`font-bold hidden sm:inline ${
-              isUrgent
-                ? "text-red-600 dark:text-red-400"
-                : isModerate
-                  ? "text-orange-600 dark:text-orange-400"
-                  : "text-primary"
-            }`}
-          >
-            {daysUntil === 0
-              ? "Today!"
-              : daysUntil === 1
-                ? "Tomorrow!"
-                : `in ${daysUntil} days`}
-          </span>
+        <Clock
+          className={`h-4 w-4 shrink-0 ${
+            isUrgent
+              ? "text-red-600 dark:text-red-400"
+              : isModerate
+                ? "text-orange-600 dark:text-orange-400"
+                : "text-primary"
+          }`}
+        />
+        <span className="font-semibold">{title}</span>
+        <span className="text-muted-foreground">•</span>
+        <div className="flex items-center gap-2">
+          <Calendar className="h-4 w-4 text-muted-foreground" />
+          <span className="text-muted-foreground">{date}</span>
+        </div>
+        <span className="text-muted-foreground hidden sm:inline">•</span>
+        <span
+          className={`font-bold hidden sm:inline ${
+            isUrgent
+              ? "text-red-600 dark:text-red-400"
+              : isModerate
+                ? "text-orange-600 dark:text-orange-400"
+                : "text-primary"
+          }`}
+        >
+          {daysUntil === 0
+            ? "Today!"
+            : daysUntil === 1
+              ? "Tomorrow!"
+              : `in ${daysUntil} days`}
+        </span>
       </div>
     </div>
   );
