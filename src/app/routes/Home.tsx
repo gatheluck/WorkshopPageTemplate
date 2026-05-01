@@ -35,7 +35,6 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { buildMeta } from "@/lib/seo";
 import { generateWorkshopStructuredData } from "@/lib/structured-data";
 import { downloadICS, isPast, daysUntil } from "@/lib/calendar";
-import { DeadlineBanner } from "@/components/deadline-banner";
 
 export const meta: Route.MetaFunction = () =>
   buildMeta({
@@ -84,9 +83,6 @@ function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: structuredData }}
       />
-
-      {/* Deadline Banner */}
-      <DeadlineBanner dates={workshopData.home.importantDates} />
 
       <main className="container mx-auto px-6 py-12 space-y-24 xl:max-w-6xl">
         {/* Hero Section */}

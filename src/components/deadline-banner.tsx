@@ -20,7 +20,7 @@ export function DeadlineBanner({ dates }: DeadlineBannerProps) {
 
   return (
     <div
-      className={`sticky top-20 z-40 border-b shadow-sm ${
+      className={`sticky top-20 z-40 w-full border-b shadow-sm ${
         isUrgent
           ? "bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-900"
           : isModerate
@@ -28,8 +28,7 @@ export function DeadlineBanner({ dates }: DeadlineBannerProps) {
             : "bg-primary/5 border-primary/10"
       }`}
     >
-      <div className="container mx-auto px-6 xl:max-w-6xl">
-        <div className="flex items-center justify-center gap-3 py-3 text-sm">
+      <div className="flex items-center justify-center gap-3 py-3 text-sm">
           <Clock
             className={`h-4 w-4 shrink-0 ${
               isUrgent
@@ -61,7 +60,6 @@ export function DeadlineBanner({ dates }: DeadlineBannerProps) {
                 ? "Tomorrow!"
                 : `in ${daysUntil} days`}
           </span>
-        </div>
       </div>
     </div>
   );
