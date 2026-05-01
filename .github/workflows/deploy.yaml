@@ -5,6 +5,9 @@ permissions:
   pages: write
   id-token: write
 on:
+  push:
+    branches:
+      - develop
   workflow_dispatch:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
