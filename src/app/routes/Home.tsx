@@ -294,7 +294,7 @@ function Home() {
               <h2 className="font-bold">About the Workshop</h2>
               <div className="h-1 w-20 bg-gradient-to-r from-primary to-primary/30 rounded-full" />
             </div>
-            <p className="text-lg leading-relaxed text-foreground/90 max-w-4xl">
+            <p className="text-lg leading-relaxed text-foreground/90">
               This workshop explores how large pretrained models are
               revolutionizing computer vision. We examine emerging techniques
               where models like Stable Diffusion enable image-to-3D

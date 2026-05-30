@@ -2,7 +2,12 @@ name: lint-and-test
 permissions: {}
 on:
   pull_request:
-    paths: ["src**"]
+    paths:
+      - "src/**"
+      - "environments/**"
+      - ".github/workflows/**"
+      - "package.json"
+      - "yarn.lock"
 defaults:
   run:
     shell: bash
@@ -34,6 +39,10 @@ jobs:
 
       - name: Create and start docker container
         run: docker compose up -d
+        working-directory: ${{ env.DOCKER_COMPOSE_DIRECTORY }}
+
+      - name: Install dependencies
+        run: docker compose exec -T frontend yarn install --immutable
         working-directory: ${{ env.DOCKER_COMPOSE_DIRECTORY }}
 
       - name: Run lint
